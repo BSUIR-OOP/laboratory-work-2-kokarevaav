@@ -30,7 +30,7 @@ class MainFrame(title: String, isResizable: Boolean): JFrame(title) {
         val drawPanel = JPanel()
 
         button.addActionListener {
-            val iFrame = InputFrame()
+            InputFrame()
         }
 
         buttonPanel.layout = FlowLayout(FlowLayout.LEFT)

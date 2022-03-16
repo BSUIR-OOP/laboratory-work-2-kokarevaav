@@ -1,61 +1,61 @@
 package ui
 
-import util.INPUT_WIDTH
-import java.awt.FlowLayout
+import util.*
+
 import java.awt.GridLayout
-import javax.swing.JButton
-import javax.swing.JComboBox
 import javax.swing.JFrame
 import javax.swing.JLabel
 import javax.swing.JPanel
-import javax.swing.JTextField
 
-class InputFrame: JFrame("Paint your shape") {
+class InputFrame: JFrame("Choose") {
     private val comboBoxContent = listOf("Sphere", "Ellipse")
 
-    // INPUT FIELDS
-    private val comboBox = JComboBox<String>()
-    private val xInputField = JTextField()
-    private val yInputField = JTextField()
-    private val hInputField = JTextField()
-    private val wInputField = JTextField()
-    private val submitButton = JButton("Paint")
+    private val comboBox = getComboBox(comboBoxContent) { println("chosen ${it.item}") }
+    private val xInputField = getTextField()
+    private val yInputField = getTextField()
+    private val hInputField = getTextField()
+    private val wInputField = getTextField()
+    private val submitButton = getButton("Paint") { println("button pressed") }
 
-    // PANELS
+    private val contentPanel = JPanel()
     private val xPanel = JPanel()
     private val yPanel = JPanel()
     private val wPanel = JPanel()
     private val hPanel = JPanel()
 
     init {
-        this.layout = GridLayout(0, 1)
+        contentPanel.layout = GridLayout(0, 1)
 
-        // SETUP CONTENT
-        comboBoxContent.forEach { string ->
-            comboBox.addItem(string)
-        }
-        xPanel.add(JLabel("X: "))
-        xPanel.add(xInputField)
-        yPanel.add(JLabel("Y: "))
-        yPanel.add(yInputField)
-        wPanel.add(JLabel("W: "))
-        wPanel.add(wInputField)
-        hPanel.add(JLabel("H: "))
-        hPanel.add(hInputField)
+        initComponents()
 
-        // ADD CONTENT IN FRAME
-        this.add(comboBox)
-        this.add(xPanel)
-        this.add(yPanel)
-        this.add(wPanel)
-        this.add(hPanel)
-        this.add(submitButton)
+        fillContentPanel()
 
-        // FRAME SETUP STUFF
-        this.setSize(130,300)
-        this.defaultCloseOperation = JFrame.DISPOSE_ON_CLOSE
+        this.add(contentPanel)
+
+        this.setSize(INPUT_WIDTH, INPUT_HEIGHT)
+        this.defaultCloseOperation = DISPOSE_ON_CLOSE
         this.setLocationRelativeTo(null)
         this.isResizable = false
         this.isVisible = true
+    }
+
+    private fun initComponents() {
+        xPanel.add(JLabel("X:"))
+        xPanel.add(xInputField)
+        yPanel.add(JLabel("Y:"))
+        yPanel.add(yInputField)
+        wPanel.add(JLabel("W:"))
+        wPanel.add(wInputField)
+        hPanel.add(JLabel("H:"))
+        hPanel.add(hInputField)
+    }
+
+    private fun fillContentPanel() {
+        contentPanel.add(getWrapper(comboBox))
+        contentPanel.add(xPanel)
+        contentPanel.add(yPanel)
+        contentPanel.add(wPanel)
+        contentPanel.add(hPanel)
+        contentPanel.add(getWrapper(submitButton))
     }
 }
