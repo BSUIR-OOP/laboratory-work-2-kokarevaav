@@ -1,6 +1,7 @@
 package repository
 
 import entities.abstraction.Shape
+import event.DrawManager
 
 
 class ShapesRepo private constructor() {
@@ -16,6 +17,7 @@ class ShapesRepo private constructor() {
 
     fun addShape(shape: Shape) {
         shapesToDraw.add(shape)
+        DrawManager.getInstance().notifyListeners()
     }
 
     fun getShapes(): ArrayList<Shape> {

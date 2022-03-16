@@ -1,5 +1,8 @@
 package ui
 
+import entities.Circle
+import entities.Point
+import repository.ShapesRepo
 import util.*
 
 import java.awt.GridLayout
@@ -15,7 +18,11 @@ class InputFrame: JFrame("Choose") {
     private val yInputField = getTextField()
     private val hInputField = getTextField()
     private val wInputField = getTextField()
-    private val submitButton = getButton("Paint") { println("button pressed") }
+    private val submitButton =
+        getButton("Paint") {
+            ShapesRepo.getInstance().addShape(Circle(Point(1.0, 1.0), 50.0))
+            this.dispose()
+        }
 
     private val contentPanel = JPanel()
     private val xPanel = JPanel()

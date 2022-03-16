@@ -27,7 +27,7 @@ class MainFrame(title: String, isResizable: Boolean): JFrame(title) {
     private fun addComponents() {
         val buttonPanel = JPanel()
         val button = JButton("Create Shape")
-        val drawPanel = JPanel()
+        val drawPanel = DrawPanel()
 
         button.addActionListener {
             InputFrame()
