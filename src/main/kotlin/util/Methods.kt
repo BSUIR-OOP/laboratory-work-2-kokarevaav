@@ -21,7 +21,7 @@ fun getButton(title: String, callback: (ActionEvent) -> Unit): JButton {
     return bt
 }
 
-fun getComboBox(content: List<String>, callBack: (ItemEvent) -> Unit): JComboBox<String> {
+fun getComboBox(content: Set<String>, callBack: (ItemEvent) -> Unit): JComboBox<String> {
     val cb = JComboBox<String>()
     cb.preferredSize = COMBO_BOX_SIZE
     cb.addItemListener(callBack)

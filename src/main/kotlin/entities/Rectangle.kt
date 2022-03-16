@@ -15,6 +15,6 @@ data class Rectangle(override var point: Point,
         val rec = Rectangle2D.Double(point.x, point.y, width, height)
 
         g2d.color = Color.BLACK
-        g2d.fill(rec)
+        g2d.draw(rec)
     }
 }

@@ -14,6 +14,6 @@ data class Circle(override var point: Point,
         val circle = Ellipse2D.Double(point.x, point.y, side, side)
 
         g2d.color = Color.BLACK
-        g2d.fill(circle)
+        g2d.draw(circle)
     }
 }

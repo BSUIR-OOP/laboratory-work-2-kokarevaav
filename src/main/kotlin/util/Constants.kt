@@ -9,5 +9,5 @@ const val INPUT_WIDTH = 140
 const val INPUT_HEIGHT = 280
 
 val TEXT_FIELD_SIZE = Dimension(50, 30)
-val BUTTON_SIZE = Dimension(100, 30)
-val COMBO_BOX_SIZE = Dimension(100, 30)
+val BUTTON_SIZE = Dimension(120, 30)
+val COMBO_BOX_SIZE = Dimension(120, 30)
