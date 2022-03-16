@@ -1,7 +1,15 @@
 package event
 
-class DrawManager: EventManager {
+class DrawManager private constructor(): EventManager {
     private var listeners: ArrayList<Listener> = ArrayList()
+
+    companion object {
+        private val instance = DrawManager()
+
+        fun getInstance(): DrawManager {
+            return instance
+        }
+    }
 
     override fun subscribe(listener: Listener) {
         listeners.add(listener)
