@@ -1,6 +1,6 @@
 package ui
 
-import entities.controller.ShapeController
+import controller.ShapeController
 import entities.factory.ShapeFactory
 import util.*
 

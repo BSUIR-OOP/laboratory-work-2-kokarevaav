@@ -1,6 +1,6 @@
 package ui
 
-import entities.controller.ShapeController
+import controller.ShapeController
 import util.WINDOW_WIDTH
 import util.WINDOW_HEIGHT
 import util.getButton
