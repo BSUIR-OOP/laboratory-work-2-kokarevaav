@@ -3,7 +3,7 @@ package entities.controller
 import entities.Line
 import entities.abstraction.SymmetricShape
 import entities.factory.ShapeFactory
-import repository.ShapesRepo
+import repository.ShapeRepo
 import ui.InputFrame
 
 class ShapeController private constructor() {
@@ -25,14 +25,14 @@ class ShapeController private constructor() {
 
     fun paintShape(shapeName: String, args: List<Double>) {
         val shape = ShapeFactory.getInstance().getShape(shapeName, args)
-        ShapesRepo.getInstance().addShape(shape)
+        ShapeRepo.getInstance().addShape(shape)
     }
 
     fun clear() {
-        ShapesRepo.getInstance().clear()
+        ShapeRepo.getInstance().clear()
     }
 
     fun clearLast() {
-        ShapesRepo.getInstance().clearLast()
+        ShapeRepo.getInstance().clearLast()
     }
 }

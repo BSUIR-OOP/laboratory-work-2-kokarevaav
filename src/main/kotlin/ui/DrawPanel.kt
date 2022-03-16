@@ -2,13 +2,13 @@ package ui
 
 import event.DrawManager
 import event.Listener
-import repository.ShapesRepo
+import repository.ShapeRepo
 import java.awt.Graphics
 import javax.swing.JPanel
 
 class DrawPanel: JPanel(), Listener {
     private val drawManager = DrawManager.getInstance()
-    private val shapeRepo = ShapesRepo.getInstance()
+    private val shapeRepo = ShapeRepo.getInstance()
 
     init {
         drawManager.subscribe(this)
