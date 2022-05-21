@@ -1,3 +1,5 @@
+import ui.MainFrame
+
 fun main() {
-    println("Hello World!")
+    val frame = MainFrame("Paint", false)
 }
